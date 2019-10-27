@@ -2,6 +2,7 @@
 namespace Omnipay\Micropayment;
 
 use Omnipay\Common\AbstractGateway;
+use Omnipay\Common\Message\AbstractRequest;
 use Omnipay\Micropayment\Message\Request\CustomerRequest;
 
 class PrepayGateway extends AbstractGateway
@@ -35,6 +36,7 @@ class PrepayGateway extends AbstractGateway
 
     /**
      * @param array $parameters
+     * @return AbstractRequest
      */
     public function createCustomer(array $parameters = [])
     {
