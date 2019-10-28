@@ -25,14 +25,16 @@ abstract class AbstractRequest extends CommonAbstractRequest
     }
 
     /**
-     * @param mixed $data
+     * @param array $data
      * @return ResponseInterface
      */
     public function sendData($data)
     {
+        $query = http_build_query($data);
+
         $response = $this->httpClient->request(
             'GET',
-            $this->getEndpoint() . '?' . http_build_query($data)
+            $this->getEndpoint() . '?' . $query
         );
 
         return $this->createResponse(ListToArray::convert($response->getBody()->getContents()));

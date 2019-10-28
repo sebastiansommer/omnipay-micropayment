@@ -5,6 +5,9 @@ use Omnipay\Micropayment\Message\Response\CustomerResponse;
 
 class CustomerRequest extends AbstractRequest
 {
+    /**
+     * @return array
+     */
     public function getData()
     {
         $data = [
@@ -16,6 +19,10 @@ class CustomerRequest extends AbstractRequest
         return $data;
     }
 
+    /**
+     * @param array $data
+     * @return CustomerResponse
+     */
     public function createResponse($data)
     {
         return new CustomerResponse($this, $data);
