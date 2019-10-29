@@ -154,7 +154,7 @@ class PaymentWindowRequest extends AbstractRequest
             'theme' => $this->getTheme(),
             'bgcolor' => $this->getBgColor(),
             'producttype' => $this->getProductType(),
-            'testmode' => $this->getTestMode(),
+            'testmode' => $this->getTestMode() === true ? 1 : 0,
             'accessKey' => $this->getAccessKey()
         ];
     }
