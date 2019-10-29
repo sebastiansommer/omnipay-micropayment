@@ -25,7 +25,8 @@ class PaymentWindowGateway extends AbstractGateway
             'bgcolor' => 'ebebeb',
             'producttype' => 'product',
             'accessKey' => '',
-            'testmode' => 0
+            'testmode' => 0,
+            'customPlaceHolders' => null
         ];
     }
 

@@ -12,12 +12,18 @@ class PaymentWindowRedirectUrlBuilder
         $url = 'https://' . $data['paymentDomain'] . '.micropayment.ch/' . $data['payment'] . '/event/';
 
         $accessKey = $data['accessKey'];
+        $customPlaceHolders = $data['customPlaceHolders'];
 
         unset($data['paymentDomain']);
         unset($data['payment']);
         unset($data['accessKey']);
+        unset($data['customPlaceHolders']);
 
         $query = http_build_query($data);
+
+        if (empty($customPlaceHolders) === false) {
+            $query .= '&' . http_build_query($customPlaceHolders);
+        }
 
         return UrlSealer::seal($url . '?' . $query, $accessKey);
     }

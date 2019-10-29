@@ -136,6 +136,22 @@ class PaymentWindowRequest extends AbstractRequest
     }
 
     /**
+     * @param array $customPlaceHolders
+     */
+    public function setCustomPlaceHolders($customPlaceHolders)
+    {
+        $this->setParameter('customPlaceHolders', $customPlaceHolders);
+    }
+
+    /**
+     * @return array
+     */
+    public function getCustomPlaceHolders(): ?array
+    {
+        return $this->getParameter('customPlaceHolders');
+    }
+
+    /**
      * @return array
      * @throws \Exception
      */
@@ -155,7 +171,8 @@ class PaymentWindowRequest extends AbstractRequest
             'bgcolor' => $this->getBgColor(),
             'producttype' => $this->getProductType(),
             'testmode' => $this->getTestMode() === true ? 1 : 0,
-            'accessKey' => $this->getAccessKey()
+            'accessKey' => $this->getAccessKey(),
+            'customPlaceHolders' => $this->getCustomPlaceHolders()
         ];
     }
 
