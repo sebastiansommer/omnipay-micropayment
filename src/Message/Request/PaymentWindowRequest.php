@@ -4,9 +4,6 @@ namespace Omnipay\Micropayment\Message\Request;
 use Omnipay\Common\Message\AbstractRequest;
 use Omnipay\Micropayment\Message\Response\PaymentWindowResponse;
 use Omnipay\Micropayment\PaymentWindowRedirectUrlBuilder;
-use Omnipay\Micropayment\UrlSealer;
-use phpDocumentor\Reflection\DocBlock\Tags\Reference\Url;
-use phpDocumentor\Reflection\DocBlock\Tags\Var_;
 
 class PaymentWindowRequest extends AbstractRequest
 {
