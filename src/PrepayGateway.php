@@ -1,9 +1,12 @@
 <?php
+declare(strict_types = 1);
 namespace Omnipay\Micropayment;
 
 use Omnipay\Common\AbstractGateway;
 use Omnipay\Common\Message\AbstractRequest;
-use Omnipay\Micropayment\Message\Request\CustomerRequest;
+use Omnipay\Micropayment\Message\Request\CustomerAddressRequest;
+use Omnipay\Micropayment\Message\Request\CustomerContactDataRequest;
+use Omnipay\Micropayment\Message\Request\CustomerCreateRequest;
 use Omnipay\Micropayment\Message\Request\PrepayPurchaseRequest;
 
 class PrepayGateway extends AbstractGateway
@@ -41,7 +44,25 @@ class PrepayGateway extends AbstractGateway
      */
     public function createCustomer(array $parameters = [])
     {
-        return $this->createRequest(CustomerRequest::class, $parameters);
+        return $this->createRequest(CustomerCreateRequest::class, $parameters);
+    }
+
+    /**
+     * @param array $parameters
+     * @return AbstractRequest
+     */
+    public function setCustomerContactData(array $parameters = [])
+    {
+        return $this->createRequest(CustomerContactDataRequest::class, $parameters);
+    }
+
+    /**
+     * @param array $parameters
+     * @return AbstractRequest
+     */
+    public function setCustomerAddress(array $parameters = [])
+    {
+        return $this->createRequest(CustomerAddressRequest::class, $parameters);
     }
 
     /**
