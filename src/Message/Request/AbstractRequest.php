@@ -1,4 +1,5 @@
 <?php
+declare(strict_types = 1);
 namespace Omnipay\Micropayment\Message\Request;
 
 use Omnipay\Common\Message\AbstractRequest as CommonAbstractRequest;

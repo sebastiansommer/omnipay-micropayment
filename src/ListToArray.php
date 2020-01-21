@@ -1,4 +1,5 @@
 <?php
+declare(strict_types = 1);
 namespace Omnipay\Micropayment;
 
 class ListToArray
@@ -7,7 +8,7 @@ class ListToArray
      * @param string $list
      * @return array
      */
-    public static function convert($list)
+    public static function convert(string $list): array
     {
         $array = [];
 

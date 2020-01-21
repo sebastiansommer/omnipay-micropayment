@@ -1,4 +1,5 @@
 <?php
+declare(strict_types = 1);
 namespace Omnipay\Micropayment\Message\Request;
 
 use Omnipay\Micropayment\Message\Response\PrepayResponse;
@@ -38,21 +39,38 @@ class PrepayPurchaseRequest extends AbstractRequest
     }
 
     /**
+     * @param $title
+     */
+    public function setTitle(string $title)
+    {
+        $this->setParameter('title', $title);
+    }
+
+    /**
+     * @return string
+     */
+    public function getTitle(): string
+    {
+        return $this->getParameter('title');
+    }
+
+    /**
      * @return array
      * @throws \Exception
      */
     public function getData(): array
     {
-        $data = [
+        $this->validate('project');
+
+        return [
             'action' => 'sessionCreate',
             'accessKey' => $this->getParameter('accessKey'),
             'testMode' => $this->getTestMode() === true ? 1 : 0,
             'customerId' => $this->getCustomerId(),
             'amount' => $this->getAmount(),
-            'project' => $this->getProject()
+            'project' => $this->getProject(),
+            'title' => $this->getTitle()
         ];
-
-        return $data;
     }
 
     /**

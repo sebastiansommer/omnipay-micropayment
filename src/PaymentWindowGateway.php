@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 namespace Omnipay\Micropayment;
 
 use Omnipay\Common\AbstractGateway;
@@ -10,7 +11,7 @@ class PaymentWindowGateway extends AbstractGateway
     /**
      * @return string
      */
-    public function getName()
+    public function getName(): string
     {
         return 'Micropayment_PaymentWindow';
     }
@@ -18,7 +19,7 @@ class PaymentWindowGateway extends AbstractGateway
     /**
      * @return array
      */
-    public function getDefaultParameters()
+    public function getDefaultParameters(): array
     {
         return [
             'theme' => 'x2',
@@ -33,7 +34,7 @@ class PaymentWindowGateway extends AbstractGateway
     /**
      * @param string $accessKey
      */
-    public function setAccessKey(string $accessKey)
+    public function setAccessKey(string $accessKey): void
     {
         $this->setParameter('accessKey', $accessKey);
     }
@@ -42,7 +43,7 @@ class PaymentWindowGateway extends AbstractGateway
      * @param array $parameters
      * @return AbstractRequest
      */
-    public function purchase(array $parameters = [])
+    public function purchase(array $parameters = []): AbstractRequest
     {
         return $this->createRequest(PaymentWindowRequest::class, $parameters);
     }
