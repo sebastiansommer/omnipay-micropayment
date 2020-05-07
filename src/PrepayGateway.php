@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+declare(strict_types=1);
 namespace Omnipay\Micropayment;
 
 use Omnipay\Common\AbstractGateway;
@@ -8,6 +8,7 @@ use Omnipay\Micropayment\Message\Request\CustomerAddressRequest;
 use Omnipay\Micropayment\Message\Request\CustomerContactDataRequest;
 use Omnipay\Micropayment\Message\Request\CustomerCreateRequest;
 use Omnipay\Micropayment\Message\Request\PrepayPurchaseRequest;
+use Omnipay\Micropayment\Message\Request\SessionGetRequest;
 
 class PrepayGateway extends AbstractGateway
 {
@@ -26,7 +27,6 @@ class PrepayGateway extends AbstractGateway
     {
         return [
             'accessKey' => '',
-            'expireDays' => 21,
             'testMode' => false
         ];
     }
@@ -37,6 +37,15 @@ class PrepayGateway extends AbstractGateway
     public function setAccessKey(string $accessKey)
     {
         $this->setParameter('accessKey', $accessKey);
+    }
+
+    /**
+     * @param array $parameters
+     * @return AbstractRequest
+     */
+    public function fetchSession(array $parameters)
+    {
+        return $this->createRequest(SessionGetRequest::class, $parameters);
     }
 
     /**
