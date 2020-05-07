@@ -26,6 +26,7 @@ class PrepayGateway extends AbstractGateway
     {
         return [
             'accessKey' => '',
+            'expireDays' => 21,
             'testMode' => false
         ];
     }

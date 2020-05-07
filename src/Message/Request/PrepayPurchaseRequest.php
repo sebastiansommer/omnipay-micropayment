@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+declare(strict_types=1);
 namespace Omnipay\Micropayment\Message\Request;
 
 use Omnipay\Micropayment\Message\Response\PrepayResponse;
@@ -55,6 +55,22 @@ class PrepayPurchaseRequest extends AbstractRequest
     }
 
     /**
+     * @param int $expireDays
+     */
+    public function setExpireDays(int $expireDays)
+    {
+        $this->setParameter('expireDays', $expireDays);
+    }
+
+    /**
+     * @return int
+     */
+    public function getExpireDays(): int
+    {
+        return $this->getParameter('expireDays');
+    }
+
+    /**
      * @return array
      * @throws \Exception
      */
@@ -69,7 +85,8 @@ class PrepayPurchaseRequest extends AbstractRequest
             'customerId' => $this->getCustomerId(),
             'amount' => $this->getAmount(),
             'project' => $this->getProject(),
-            'title' => $this->getTitle()
+            'title' => $this->getTitle(),
+            'expireDays' => $this->getExpireDays()
         ];
     }
 
