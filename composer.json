@@ -9,10 +9,10 @@
         }
     },
     "require": {
-        "league/omnipay": "^3.0"
+        "league/omnipay": "~3.0.0"
     },
     "require-dev": {
-        "omnipay/tests": "^3"
+        "omnipay/tests": "~3.0.0"
     },
     "prefer-stable": true
 }
